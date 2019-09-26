@@ -2,13 +2,13 @@
  * @Author: wei.ling
  * @Date: 2019-09-21 16:16:43
  * @Last Modified by: wei.ling
- * @Last Modified time: 2019-09-24 17:50:37
+ * @Last Modified time: 2019-09-25 17:17:22
  * @descrite "首页"
  */
 import React, { Component } from "react";
 import { Carousel,Grid } from "antd-mobile";
 import utils from "../utils";
-
+import "./index.less";
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -125,7 +125,7 @@ export default class Home extends Component {
                 ))}
               </Carousel>
             )}
-            <Grid data={gridData} hasLine={false} columnNum="4" isCarousel={true} onClick={(el,index)=>this.gridCellClick(el,index)}/>
+            <Grid data={gridData} itemStyle={{color:"#666"}} hasLine={false} columnNum="4" isCarousel={true} onClick={(el,index)=>this.gridCellClick(el,index)}/>
           </main>
         </div>
       </div>

@@ -2,13 +2,14 @@
  * @Author: wei.ling
  * @Date: 2019-09-21 16:16:43
  * @Last Modified by: wei.ling
- * @Last Modified time: 2019-09-24 15:28:00
+ * @Last Modified time: 2019-09-25 16:01:07
  * @descrite "首页"
  */
 import React, { Component } from "react";
 import { TabBar } from "antd-mobile";
 import Header from "../components/header/header";
 import Home from "../home/index";
+import PersonalCenter from "../personalCenter/personalCenter";
 import "./index.less";
 export default class Entrance extends Component {
   constructor(props) {
@@ -142,7 +143,7 @@ export default class Entrance extends Component {
               onPress={() => this.onPressTab("2")}
               data-seed='logId1'
             >
-              efasdfsfsdf
+              sdfasdfasdf
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -198,7 +199,7 @@ export default class Entrance extends Component {
               selected={this.state.selectedTab === "4"}
               onPress={() => this.onPressTab("4")}
             >
-              asdfasdfas
+              <PersonalCenter/>
             </TabBar.Item>
           </TabBar>
         </div>
