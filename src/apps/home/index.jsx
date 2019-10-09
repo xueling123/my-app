@@ -2,12 +2,14 @@
  * @Author: wei.ling
  * @Date: 2019-09-21 16:16:43
  * @Last Modified by: wei.ling
- * @Last Modified time: 2019-09-25 17:17:22
+ * @Last Modified time: 2019-09-26 18:16:55
  * @descrite "首页"
  */
 import React, { Component } from "react";
 import { Carousel,Grid } from "antd-mobile";
+import fetch from "node-fetch";
 import utils from "../utils";
+
 import "./index.less";
 export default class Home extends Component {
   constructor(props) {
@@ -39,50 +41,23 @@ export default class Home extends Component {
         ]
       });
     }, 100);
-    this.setState({
-      gridData:[
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"缴费"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"联系物业"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"家电维修"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"家政服务"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"医疗咨询"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"教育"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"保险服务"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"汽车服务"
-        },
-        {
-          icon:'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-          text:"交友社区"
-        }
-      ]
-    })
+    fetch('data/listData.json')
+    .then(res => res.json())
+    .then(json => {
+      this.setState({
+        gridData:json.gridData
+      })
+    });
   }
   // 常用功能点击事件
   gridCellClick(el,index){
     console.log(el,index);
+    // fetch(`../../../public/data/listData.json`).then((res)=>{
+    //   console.log(res);
+    // })
+    // let headers = new headers();
+    // headers.append('Content-Type', 'application/json');
+    
   }
   render() {
     const { bannerData,gridData } = this.state;
@@ -98,7 +73,7 @@ export default class Home extends Component {
           <main>
             {utils.isNotEmpty(bannerData) && (
               <Carousel
-                autoplay={true}
+                autoplay={false}
                 infinite
               >
                 {bannerData.map(val => (
