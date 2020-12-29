@@ -108,6 +108,11 @@ module.exports = function(webpackEnv) {
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
+            require('postcss-pxtorem')({
+              rootValue : 75,
+              selectorBlackList  : [], //过滤
+              propList   : ['*'],
+            }),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
@@ -424,7 +429,7 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
-              }),
+              },"less-loader"),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.

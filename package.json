@@ -149,5 +149,8 @@
         }
       ]
     ]
+  },
+  "devDependencies": {
+    "postcss-pxtorem": "^5.1.1"
   }
 }

@@ -8,6 +8,7 @@ import Login from "./login/login.jsx";
 import './assets/App.less';
 ReactDOM.render(
   <BrowserRouter>
+    <Route path='/' component={Entrance} />
     <Route path='/entrance' component={Entrance} />
     <Route path='/login' component={Login} />
   </BrowserRouter>,
