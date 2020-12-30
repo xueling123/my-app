@@ -7,6 +7,7 @@
     "@svgr/webpack": "4.3.2",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
+    "antd": "^3.26.19",
     "antd-mobile": "^2.3.1",
     "babel-eslint": "10.0.2",
     "babel-jest": "^24.8.0",
@@ -147,7 +148,12 @@
           "libraryName": "antd-mobile",
           "style": true
         }
-      ]
+      ],
+      ["import", {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css"
+      }]
     ]
   },
   "devDependencies": {
